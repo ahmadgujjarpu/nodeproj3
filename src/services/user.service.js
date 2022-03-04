@@ -19,7 +19,7 @@ const createUser = async (userBody,req,res) => {
         }
        else {
            if(userBody.password===userBody.re_password){  
-            saltRounds=10;
+        const saltRounds=10;
     const hash=await bcrypt.hash(userBody.password,saltRounds);
     const hash2=await bcrypt.hash(userBody.re_password,saltRounds);
     const user = User.user.create({email:userBody.email,password:hash,re_enter_password:hash2});
