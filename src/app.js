@@ -16,8 +16,7 @@ const db = require('./config/db');
 
 const Sequelize = require('sequelize');
 
-const User = require('./models/user.model')
-
+const User = require('./models/user.model');
 
 //creates an object of type express. This represents our application.
 const app = express();

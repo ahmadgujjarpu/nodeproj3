@@ -63,7 +63,7 @@ const task = sequelize.define('task', {
     member: {
         type: Sequelize.STRING
     },
-    description: {
+    taskdescription: {
         type: Sequelize.STRING
     }
 });

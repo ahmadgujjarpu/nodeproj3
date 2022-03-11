@@ -5,7 +5,8 @@ const signupvalidate=(data)=>{
        password:Joi.string().min(8).max(30).required(),
        re_password:Joi.string().min(8).max(30).required()
    });
-   return schema.validate(data);
+   const valid=schema.validate(data);
+   return valid;
 }
 
     const loginvalidate=(data)=>{

@@ -59,20 +59,20 @@
   <div id="color">
   <div class="container-fluid ">
       <h1 class="text-center mt-4 text4 ">Sign Up</h1>
-      <form action="http://localhost:3005/user/signup" method="post" id="user-form">
+      <form action="http://localhost:3005/user/signup" method="post" id="user-signup-form">
         <div class="form-group">
           <label for="inputEmail">Email</label>
-          <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email">
+          <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email" required>
         </div>
         <div class="form-group mt-3">
           <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password">
+          <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password" required>
         </div>
         <div class="form-group mt-3">
           <label for="inputPassword">Re-enter Password</label>
-          <input type="password" class="form-control" name="re_password" id="inputPassword" placeholder="Password">
+          <input type="password" class="form-control" name="re_password" id="inputPassword" placeholder="Password" required>
         </div>
-        <button type="submit" class="btn btn-primary mt-4 text-white button">Sign In</button>
+        <button type="submit" id="signup-btn" class="btn btn-primary mt-4 text-white button">Sign In</button>
       </form>
     </div>
   </div>
@@ -98,7 +98,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
-      <!-- <script src="./js/signup.js"></script> -->
+      <script src="./js/signup.js"></script>
 </body>
 
 </html>

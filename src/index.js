@@ -13,6 +13,8 @@ User.user.hasOne(User.user_project);
 User.user_project.belongsTo(User.user);
 User.project.hasOne(User.user_project);
 User.user_project.belongsTo(User.project);
+// User.user.hasMany(User.project({through:User.user_project}));
+// User.project.belongsToMany(User.user({through:User.user_project}));
 try {
     db.authenticate();
     console.log('Connection has been established successfully.');
