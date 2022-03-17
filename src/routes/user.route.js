@@ -1,30 +1,29 @@
 const express = require('express');
+const profile=require("../middleware/uploadpic.js")
 // The express.Router() function is used to create a new router object.
 //  This function is used when you want to create a new router object in your program to handle requests.
 const router = express.Router();
-const auth=require('../middleware/auth')
+const {verifyToken}=require('../middleware/auth');
 
-const userValidation = require('../validations/user.validation');
+
 const userController = require('../controllers/user.controller');
 
 
+router
+    .route('/home')
+    .get(verifyToken,userController.gethome)
+    
+router
+    .route('/userdata')
+    .get(verifyToken,userController.getUsers)
 
+    router
+    .route('/accountupdate')
+    .get(userController.getupdateUser)
+    .patch(profile.upload.single("userpics"))
+  
 router
-    .route('/signup')
-    .post(userController.createUser);
-router
-    .route('/login')
-    .post(userController.signinUser)
-router
-    .route('/')
-    .get(userController.getUsers)
-router
-    .route('/:id')
-    .get(userController.getUser)
-router
-    .route('/projects')
-    .post(userController.postProject);
-router
-    .route('/tasks')
-    .post(userController.postTask)
-    module.exports = router;
+    .route('/userupdate')
+    .post(profile.upload.single("userpic"),userController.fileUpload)
+
+module.exports = router;
