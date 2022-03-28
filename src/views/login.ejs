@@ -101,12 +101,16 @@ const request=await fetch("http://localhost:3005/auth/login",{
         "content-type":"application/json"
     },
     body:JSON.stringify(plainFormData)
-}).then((res)=>{
+}).then(async(res)=>{
     console.log("status code :"+res.status);
+    const data=await res.json();
+    console.log(data);
+    console.log("data id :"+data.id);
     if(res.status==200){
-       
-        location.assign("http://localhost:3005/user/home");
-        cookies.set(res.cookie)
+        location.assign(`http://localhost:3005/user/home/${data.id}`);
+        localStorage.setItem("user_id",data.id);
+        cookies.set(res.cookie);
+
     }else{
        console.log("status code :"+res.status);
        }

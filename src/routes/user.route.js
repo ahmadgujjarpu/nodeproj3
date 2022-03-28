@@ -10,20 +10,18 @@ const userController = require('../controllers/user.controller');
 
 
 router
-    .route('/home')
+    .route('/home/:id')
     .get(verifyToken,userController.gethome)
     
-router
-    .route('/userdata')
-    .get(verifyToken,userController.getUsers)
 
     router
-    .route('/accountupdate')
-    .get(userController.getupdateUser)
-    .patch(profile.upload.single("userpics"))
-  
+    .route('/uploadpic/:id')
+    .patch(profile.upload.single("userpics"),userController.uploadpic)
 router
-    .route('/userupdate')
-    .post(profile.upload.single("userpic"),userController.fileUpload)
+    .route('/userAccount/:id')
+    .get(verifyToken,userController.getupdateaccount)
+    .patch(userController.accountupdate)
+
+  
 
 module.exports = router;

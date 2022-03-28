@@ -7,6 +7,9 @@ const user = sequelize.define('user', {
         autoIncrement:true,
         primaryKey:true
     },
+    profilePic:{
+        type: Sequelize.STRING
+    },
     
     firstname: {
         type: Sequelize.STRING

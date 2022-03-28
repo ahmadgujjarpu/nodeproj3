@@ -13,7 +13,7 @@ const verifyToken= (req, res, next) => {
               console.log(err.message);
               res.send("Please sign in");
           } else {
-              console.log(decoded.email);
+              console.log(decoded.id);
               next();
           }
       });
@@ -24,13 +24,12 @@ const verifyToken= (req, res, next) => {
 const setViewUser = (req, res, next) => {
     const token = req.cookies.jwt;
     if (token) {
-        jwt.verify(token, 'tokensecret', async (err, decoded) => {
+        jwt.verify(token,config.jwt.JWT_SECRET, async (err, decoded) => {
             if (err) {
                 res.locals.user = null;
             } else {
-                let user = await User.user.findOne(decoded.email);
-                res.locals.user = user;
-                next();
+                console.log(decoded.id);
+                return decoded.id;
             }
         });
     } else {

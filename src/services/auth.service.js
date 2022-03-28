@@ -1,12 +1,12 @@
 const User = require('../models/user.model');
 const validation=require('../validations/user.validation')
-const config = require('../config/config');
+
 // Bcrypt is a more powerful hash generator for passwords
 //  and uses salt to create a non-recurrent hash.
 const bcrypt=require("bcrypt");
 const res = require('express/lib/response');
 
-const jwt=require('jsonwebtoken');
+
 
 const createUser = async (userBody) => {
     const email=userBody.email;
@@ -48,11 +48,11 @@ const signinUser = async (userBody,req,res) => {
                     
                     const saltRounds= await bcrypt.genSalt(6);
                 const hash=await bcrypt.hash(userBody.password,saltRounds);
-     const token=jwt.sign({email},config.jwt.JWT_SECRET,{
-                    expiresIn : 60*60
-                });
-                user.token=token;
-                return token;
+                const id=user.id;
+                console.log(user.id);
+     
+                console.log(user);
+                return user;
                  }
                  else{
                      console.log("wrong password");

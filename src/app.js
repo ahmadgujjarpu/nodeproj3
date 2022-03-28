@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 // enable cors
 app.use(cors());
 app.use(express.static("./public"));
-app.set('view engine', 'ejs');
+app.set('view engine','ejs');
 
 
 

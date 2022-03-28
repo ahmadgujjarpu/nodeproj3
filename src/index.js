@@ -5,14 +5,14 @@ const User= require('./models/user.model')
 
 //Test if the db connection is OK
 
-User.user.hasOne(User.task);
-User.task.belongsTo(User.user)
-User.project.hasOne(User.task);
-User.task.belongsTo(User.project);
-User.user.hasOne(User.user_project);
-User.user_project.belongsTo(User.user);
-User.project.hasOne(User.user_project);
-User.user_project.belongsTo(User.project);
+// User.user.hasOne(User.task);
+// User.task.belongsTo(User.user)
+// User.project.hasOne(User.task);
+// User.task.belongsTo(User.project);
+// User.user.hasOne(User.user_project);
+// User.user_project.belongsTo(User.user);
+// User.project.hasOne(User.user_project);
+// User.user_project.belongsTo(User.project);
 // User.user.hasMany(User.project({through:User.user_project}));
 // User.project.belongsToMany(User.user({through:User.user_project}));
 try {
